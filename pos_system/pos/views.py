@@ -37,7 +37,7 @@ def edit_product(request, name):
     return render(request, 'edit_product.html', {'product': product})
 
     
-# pos/views.py
+
 def purchase(request):
     if request.method == 'POST':
         product_name = request.POST['product_name']
@@ -52,7 +52,6 @@ def purchase(request):
 
         quantity = int(quantity_str) 
 
-        # Check if the product exists
         if product_name not in pos_ins.products:
             return render(request, 'purchase.html', {
                 'error': 'Product not found.',
@@ -62,7 +61,6 @@ def purchase(request):
         product = pos_ins.products[product_name]  #
         available_stock = product.quantity  
 
-        # Check if there is enough stock
         if quantity >= available_stock:
             return render(request, 'purchase.html', {
                 'error': 'Not enough stock.',
