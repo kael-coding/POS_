@@ -1,0 +1,22 @@
+<h1>Purchase Product</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <label for="product_name">Select Product:</label>
+    <select name="product_name" id="product_name" required>
+        {% for product in products %}
+            <option value="{{ product.name }}">{{ product.name }} - ${{ product.price }} (Available: {{ product.quantity }})</option>
+        {% endfor %}
+    </select><br>
+
+    <label for="quantity">Quantity:</label>
+    <input type="text" name="quantity" id="quantity" min="1" required><br>
+
+    <input type="submit" value="Purchase">
+</form>
+
+{% if error %}
+    <p style="color: red;">{{ error }}</p>
+{% endif %}
+
+<a href="{% url 'index' %}">Back</a>

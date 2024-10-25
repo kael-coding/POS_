@@ -1,0 +1,15 @@
+<!-- pos/templates/pos/receipt.html -->
+<h1>Receipt</h1>
+<p>Thank you for your purchase!</p>
+
+<ul>
+    <li>Product: {{ sale_detail.name }}</li>
+    <li>Quantity: {{ sale_detail.quantity }}</li>
+    <li>Unit Price: ${{ sale_detail.price }}</li>
+    <li>Subtotal: ${{ sale_detail.total }}</li>
+    <li>Tax (12%): ${{ sale_detail.tax }}</li>
+    <li><strong>Grand Total: ${{ sale_detail.grand_total }}</strong></li>
+</ul>
+
+<a href="{% url 'index' %}">Back to Home</a>
+<a href="{% url 'purchase' %}">Make Another Purchase</a>

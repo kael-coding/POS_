@@ -1,0 +1,14 @@
+<!-- pos/templates/pos/history.html -->
+<h1>Sale History</h1>
+<ul>
+    {% for sale in history %}
+        <li>
+            {{ sale.name }} - Quantity Sold: {{ sale.quantity }} - 
+            Total: ${{ sale.total }} - 
+            Tax: ${{ sale.tax }} - 
+            Grand Total: ${{ sale.grand_total }}
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'index' %}">Back</a>

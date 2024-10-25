@@ -1,0 +1,10 @@
+<h1>Add Product</h1>
+<form method="post">
+    {% csrf_token %}
+    Name: <input type="text" name="name" required><br>
+    Price: <input type="number" name="price" required><br>
+    Quantity: <input type="number" name="quantity" required><br>
+     <input type="file" name="image" required><br>
+    <input type="submit" value="Add Product">
+</form>
+<a href="{% url 'index' %}">Back</a>

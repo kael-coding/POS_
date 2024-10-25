@@ -1,0 +1,10 @@
+<h1>Edit Product: {{ product.name }}</h1>
+<form method="post">
+    {% csrf_token %}
+    Name: <input type="text" name="name" value="{{ product.name }}" readonly><br>
+    Price: <input type="number" name="price" value="{{ product.price }}"><br>
+    Quantity: <input type="number" name="quantity" value="{{ product.quantity }}"><br>
+    Image URL: <input type="text" name="image" value="{{ product.image }}"><br>
+    <input type="submit" value="Edit Product">
+</form>
+<a href="{% url 'index' %}">Back</a>

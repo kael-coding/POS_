@@ -1,0 +1,15 @@
+<!-- pos/templates/pos/index.html -->
+<h1>Products</h1>
+<a href="{% url 'add_product' %}">Add Product</a>
+<a href="{% url 'purchase' %}">Purchase Product</a>
+<ul>
+    {% for product in products.values %}
+        <li>
+            {{ product.name }} - ${{ product.price }} (Quantity: {{ product.quantity }})
+            <img src="{{ product.image }}" alt="{{ product.name }}" width="50">
+            <a href="{% url 'edit_product' product.name %}">Edit</a>
+            <a href="{% url 'delete_product' product.name %}" style="color: red;">Delete</a> 
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'history' %}">View Sale History</a>
